@@ -3,7 +3,7 @@ export enum stateUser {
   BANNED = 'banned',
 }
 
-export enum role {
+export enum roles {
   ROOT = 'root',
   ADMIN = 'admin',
   USER = 'user',

@@ -35,7 +35,7 @@ const UserSchema = new Schema<User>(
 
     role: {
       type: Schema.Types.ObjectId,
-      ref: 'roles',
+      ref: 'role',
     },
 
     isVerified: {

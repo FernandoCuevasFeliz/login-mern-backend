@@ -1,11 +1,20 @@
 interface User {
-  firstname: String;
-  lastName: String;
-  username: String;
-  email: String;
-  password?: String;
-  isVerified?: Boolean;
-  isActive?: Boolean;
-  googleId?: String;
-  facebookId?: String;
+  firstname: string;
+  lastname: string;
+  username: string;
+  email: string;
+  role?: Role;
+  password?: string;
+  isVerified?: boolean;
+  stateUser?: string;
+  googleId?: string;
+  facebookId?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+interface Payload {
+  user: {
+    id: string;
+  };
 }

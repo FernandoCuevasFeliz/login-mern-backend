@@ -3,6 +3,7 @@ import { Schema, model } from 'mongoose';
 const RoleSchema = new Schema<Role>(
   {
     name: {
+      type: String,
       required: true,
       unique: true,
       trim: true,

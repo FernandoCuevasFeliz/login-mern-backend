@@ -27,6 +27,7 @@ function errorParse(error: Error, next: NextFunction) {
     return;
   }
 
+  console.log(error);
   next(new ErrorHandler(INTERNAL_SERVER_ERROR, 'Error performing actions'));
 }
 
