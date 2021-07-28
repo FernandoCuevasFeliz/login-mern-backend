@@ -1,11 +1,28 @@
 import { UserController } from '../controllers/UserController';
 import { ErrorRouter } from '../errors/ErrorRouter';
-import { createUserValidator } from '../validators/uservalidators';
+import { authorization, permissions } from '../middlewares/jwt.middleware';
+import {
+  createUserValidator,
+  updatePasswordValidator,
+  updateUserValidator,
+} from '../validators/uservalidators';
 
 const router = new ErrorRouter();
 
-router.get('/', UserController.getUsers);
-router.get('/:id', UserController.getUser);
-router.post('/', createUserValidator, UserController.createUser);
+router
+  .route('/')
+  .get(UserController.getUsers)
+  .put(authorization, updateUserValidator, UserController.updateUser)
+  .patch(
+    authorization,
+    updatePasswordValidator,
+    UserController.updatePasswordUser
+  )
+  .post(createUserValidator, UserController.createUser);
+
+router
+  .route('/:id')
+  .get(UserController.getUser)
+  .delete(authorization, permissions, UserController.deleteUser);
 
 export const userRoutes = router.router;

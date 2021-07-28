@@ -20,7 +20,7 @@ export const internalError = (
   next: NextFunction
 ) => {
   const { message, statusCode = INTERNAL_SERVER_ERROR } = error;
-  res.status(statusCode).json({
+  return res.status(statusCode).json({
     status: 'Error',
     statusCode,
     message,

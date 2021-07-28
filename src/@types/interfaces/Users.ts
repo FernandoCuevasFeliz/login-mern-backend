@@ -1,4 +1,5 @@
 interface User {
+  _id?: string;
   firstname: string;
   lastname: string;
   username: string;
@@ -13,8 +14,21 @@ interface User {
   updatedAt?: string;
 }
 
+interface changePassword {
+  oldPassword: string;
+  newPassword: string;
+  confirmNewPassword: string;
+}
+
 interface Payload {
   user: {
     id: string;
   };
+}
+declare namespace Express {
+  export interface Request {
+    user: {
+      id: string;
+    };
+  }
 }
